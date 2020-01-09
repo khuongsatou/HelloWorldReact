@@ -14,6 +14,27 @@ import { Style } from "./src/comon";
 YellowBox.ignoreWarnings(['Warning:...']);
 console.disableYellowBox = true;
 console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
+class Blink extends Component{
+
+  componentDidMount(){
+    setInterval(() => (
+      this.setState(previousState =>(
+        { isShowingText: !previousState.isShowingText }
+        ))
+    ),1000);
+  }
+  state = { isShowingText: true};
+  render(){
+    if(!this.state.isShowingText){
+      return null;
+    }
+    return(
+      <Text>{this.props.text}</Text>
+    );
+  }
+}
+
+
 export default class Demo1 extends Component {
   constructor(props) {
     super(props);
@@ -27,12 +48,12 @@ export default class Demo1 extends Component {
   render() {
     console.log("Hello Render");
     return (
-      
-      <View style={styles.bao}>
-        <View style={styles.teo} />
-        <View style={styles.ti} />
-        <View style={styles.suu} />
-      </View>
+        <View style={styles.bao}>
+          <StatusBar hidden={true}/>
+          <Blink text="I love to Blink"></Blink>
+          <Blink text="I love to Blink 2"></Blink>
+          <Blink text="I love to Blink 3"></Blink>
+        </View>
     );
   }
 
@@ -48,7 +69,8 @@ const styles = StyleSheet.create({
   bao: { flex: 1, flexDirection: 'row' },
   teo: {
     backgroundColor: 'red',
-    flex: 1
+    flex: 1,
+    marginTop:30
   },
   ti: {
     backgroundColor: 'yellow',
@@ -57,6 +79,12 @@ const styles = StyleSheet.create({
   suu: {
     backgroundColor: 'pink',
     flex: 3/2
+  },
+  chuNhay:{
+    marginTop:40,
+    width:20,
+    height:20,
+    fontSize:30
   }
 });
 
