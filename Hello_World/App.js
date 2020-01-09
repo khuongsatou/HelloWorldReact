@@ -27,12 +27,11 @@ export default class Demo1 extends Component {
   render() {
     console.log("Hello Render");
     return (
-      <View>
-        <StatusBar hidden={true} />
-        <View style={styles.bao}>
-          <Text style={styles.teo}>afgfg</Text>
-          <Text style={styles.ti}>b</Text>
-        </View>
+      
+      <View style={styles.bao}>
+        <View style={styles.teo} />
+        <View style={styles.ti} />
+        <View style={styles.suu} />
       </View>
     );
   }
@@ -46,21 +45,18 @@ export default class Demo1 extends Component {
 
 
 const styles = StyleSheet.create({
-  bao: {
-    backgroundColor: 'black',
-    flex: 1
-  },
+  bao: { flex: 1, flexDirection: 'row' },
   teo: {
     backgroundColor: 'red',
-    flex:2,
-    width:300,
-    height:203
+    flex: 1
   },
   ti: {
     backgroundColor: 'yellow',
-    flex: 1,
-    width:300,
-    height:203
+    flex: 1
+  },
+  suu: {
+    backgroundColor: 'pink',
+    flex: 3/2
   }
 });
 
