@@ -14,19 +14,13 @@ import { Style } from "./src/comon";
 YellowBox.ignoreWarnings(['Warning:...']);
 console.disableYellowBox = true;
 console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
-// const rectangle = {
-//   width: 200,
-//   height: 300,
-//   backgroundColor:'blue'
-// };
-
 export default class Demo1 extends Component {
   constructor(props) {
     super(props);
     console.log("Hello ConStructor");
   }
 
-  componentWillMount(){
+  componentWillMount() {
     console.log("Hello WillMount");
   }
 
@@ -34,67 +28,40 @@ export default class Demo1 extends Component {
     console.log("Hello Render");
     return (
       <View>
-        
         <StatusBar hidden={true} />
-        <View style={{
-          marginTop: 20,
-          width: 50,
-          height: 50,
-          backgroundColor: 'red'
-        }}>
+        <View style={styles.bao}>
+          <Text style={styles.teo}>afgfg</Text>
+          <Text style={styles.ti}>b</Text>
         </View>
-        <View style={Style.rectangle} />
-        <View style={styles.header, styles.background} />
-
-
       </View>
     );
   }
 
-  componentDidMount(){
+  componentDidMount() {
     console.log("Hello DidMount");
   }
 
 
 }
 
-AppRegistry.registerComponent('Demo1', () => Demo1);
-
-// export default function App() {
-//   return (
-//     <View>
-
-//       <View style={{
-//         marginTop:20,
-//         width: 50,
-//         height: 50,
-//         backgroundColor: 'red'
-//       }}>
-//         </View>
-//         <View style={Style.rectangle}/>
-//         <View style={styles.header,styles.background}/>
-
-
-//     </View>
-
-//   );
-// }
 
 const styles = StyleSheet.create({
-  container: {
+  bao: {
+    backgroundColor: 'black',
+    flex: 1
+  },
+  teo: {
+    backgroundColor: 'red',
+    flex:2,
+    width:300,
+    height:203
+  },
+  ti: {
+    backgroundColor: 'yellow',
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-  },
-  header: {
-    width: 500,
-    height: 300,
-    borderWidth: 1,
-    marginTop: 4
-  },
-  background: {
-    borderColor: 'green'
+    width:300,
+    height:203
   }
 });
+
+AppRegistry.registerComponent('Demo1', () => Demo1);
