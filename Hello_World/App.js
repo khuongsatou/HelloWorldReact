@@ -1,73 +1,38 @@
-import React, { Component } from 'react'
-// import React from 'react';
+import React, { useState } from 'react'
 import {
-  YellowBox,
   StyleSheet,
   Text,
   View,
-  AppRegistry,
-  StatusBar,
   Button,
-  TextInput,
-  TouchableOpacity
 } from 'react-native';
-import { Avatar } from "./src/Components";
-import { Style } from "./src/comon";
-import { Logs } from 'expo';
 
-import KhoaPham from "./components/KhoaPham.js";
-
-YellowBox.ignoreWarnings(['Warning:...']);
-console.disableYellowBox = true;
-console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
-
-
-
-export default class Demo1 extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      somayman: 999
-    };
+export default function App(){
+  const [name,setName] = useState('Khuong');
+  const clickHandler = () =>{
+    setName('Thang Khac');
   }
-  
-  clickMe(){
-    console.log("ClickMe");
-    this.setState({
-      somayman: this.state.somayman+1
-    });
-  }
+  return (
+    <View style={styles.container}>
+      <Text>My Name is {name}</Text>
+      <Text></Text>
+      <View style={styles.buttonContainer}>
+        <Button title='update State' onPress={clickHandler}/>
 
-  render() {
-    return (
-      <View style={styles.bao}>
-        <Text style={{ fontSize: 100 }}>{this.state.somayman}</Text>
-        <TouchableOpacity onPress={()=>{this.clickMe()}}>
-          <View style={{width:100,height:20,backgroundColor:'red'}}></View>
-        </TouchableOpacity>
       </View>
-    );
-  }
+    </View>
+  )
 }
 
 
-
-
-
 const styles = StyleSheet.create({
-  bao: {
+  container: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    backgroundColor:'#fff',
+    alignItems:'center',
+    justifyContent:'center',
   },
-  teo: {
-    width: 20,
-    height: 30,
-    borderWidth: 1,
-    backgroundColor: 'yellow',
+  buttonContainer:{
+    margin:20
   }
-
+ 
 });
-
-AppRegistry.registerComponent('Demo1', () => Demo1);
