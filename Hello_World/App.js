@@ -9,24 +9,29 @@ import {
 
 
 export default function App(){
-  const [name,setName] = useState('Khuong');
   const [person,setPerson] = useState({
     name:'mario',
     age:40
   });
   const clickHandler = () =>{
-    setName('Thang Khac');
     setPerson({name:'Mario 2' ,age:45});
   }
   return (
     <View style={styles.container}>
-      <Text>Enter name:</Text>
+      <Text>Enter Name:</Text>
       <TextInput style={styles.input}
+      multiline
       placeholder='e.g. Khuong'
-      onChangeText={(val)=>setName(val)}
+      onChangeText={(val)=>setPerson({name:val,age:person.age})}
       
       />
-      <Text>name:{name},age:{person.age}</Text>
+       <Text>Enter Age:</Text>
+      <TextInput style={styles.input}
+      placeholder='e.g. 99'
+      keyboardType='numeric'
+      onChangeText={(val)=>setPerson({age:val,name:person.name})}
+      />
+    <Text>name: {person.name}, age: {person.age} </Text>
     </View>
   )
 }
