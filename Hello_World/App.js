@@ -5,9 +5,10 @@ import {
   View,
   Button,
   TextInput,
-  ScrollView
+  ScrollView,
+  Touchable
 } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 
 export default function App() {
@@ -19,7 +20,17 @@ export default function App() {
     { name: 'toad', key: 5 },
     { name: 'bowser', key: 6 },
   ]);
-
+  const pressHandler =(key)=>{
+    console.log(key);
+    //Đầu vào là 1 mảng
+    setPeople((prevPeople)=>{
+      //Lọc qua từng item
+      //false là xóa nó
+      //true là giữ lại
+      // nếu nó là item của mình nhấn vào thì trả về false và xóa nó
+      return prevPeople.filter(person =>person.key != key);
+    });
+  }
   return (
     <View style={styles.container}>
       <FlatList
@@ -27,21 +38,11 @@ export default function App() {
         keyExtractor={(item) => item.key}
         data={people}
         renderItem={({ item }) => (
-          <Text style={styles.items}>{item.name}</Text>
+          <TouchableOpacity onPress={()=>pressHandler(item.key)}>
+              <Text style={styles.items}>{item.name}</Text>
+          </TouchableOpacity>
         )}
       />
-
-
-
-      {/* <ScrollView>
-      {
-        people.map(item => (
-            <View key={item.key}>
-              <Text style={styles.items}>{item.name}</Text>
-            </View>
-        ))
-      }
-      </ScrollView> */}
     </View>
   )
 }
