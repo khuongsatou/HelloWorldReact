@@ -27,9 +27,9 @@ console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
   render() {
     return (
       <View style={styles.bao}>
-        <KhachHang hoten="Pham Truong Dang Khoa"/>
-        <KhachHang hoten="Nguyen Van Teo"/>
-        <KhachHang/>
+        
+        <KhoaPham tenKhachHang="Khuong" />
+        <KhoaPham tenKhachHang="Khuong1" age={1999} />
       </View>
     );
   }
