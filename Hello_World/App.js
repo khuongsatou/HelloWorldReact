@@ -7,6 +7,7 @@ import {
   TextInput,
   ScrollView
 } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 
 
 export default function App() {
@@ -21,7 +22,16 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <FlatList
+        data={people}
+        renderItem={({ item }) => (
+        <Text style={styles.items}>{item.name}</Text>
+        )}
+      />
+
+      
+
+      {/* <ScrollView>
       {
         people.map(item => (
             <View key={item.key}>
@@ -29,7 +39,7 @@ export default function App() {
             </View>
         ))
       }
-      </ScrollView>
+      </ScrollView> */}
     </View>
   )
 }
