@@ -14,6 +14,8 @@ import { Avatar } from "./src/Components";
 import { Style } from "./src/comon";
 import { Logs } from 'expo';
 
+import KhoaPham from "./components/KhoaPham.js";
+
 YellowBox.ignoreWarnings(['Warning:...']);
 console.disableYellowBox = true;
 console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
@@ -33,6 +35,7 @@ console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
         <OVuong/>
         <OVuong/>
         <OVuong/>
+        <KhoaPham/>
       </View>
     );
   }
