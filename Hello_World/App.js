@@ -6,10 +6,12 @@ import {
   Text,
   View,
   AppRegistry,
-  StatusBar
+  StatusBar,
+  Button
 } from 'react-native';
 import { Avatar } from "./src/Components";
 import { Style } from "./src/comon";
+import { Logs } from 'expo';
 
 YellowBox.ignoreWarnings(['Warning:...']);
 console.disableYellowBox = true;
@@ -45,14 +47,22 @@ export default class Demo1 extends Component {
     console.log("Hello WillMount");
   }
 
+  onPressLearnMore(){
+    console.log("Click");
+  }
+
   render() {
     console.log("Hello Render");
     return (
         <View style={styles.bao}>
-          <StatusBar hidden={true}/>
-          <Blink text="I love to Blink"></Blink>
-          <Blink text="I love to Blink 2"></Blink>
-          <Blink text="I love to Blink 3"></Blink>
+           <Button
+           onPress={()=>{
+             console.log("Click")
+           }}
+          title="Learn More"
+          color="red"
+          accessibilityLabel="Learn more about this purple button"
+          />
         </View>
     );
   }
