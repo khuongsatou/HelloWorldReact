@@ -23,13 +23,15 @@ export default function App() {
   return (
     <View style={styles.container}>
       <FlatList
+        numColumns={2}
+        keyExtractor={(item) => item.key}
         data={people}
         renderItem={({ item }) => (
-        <Text style={styles.items}>{item.name}</Text>
+          <Text style={styles.items}>{item.name}</Text>
         )}
       />
 
-      
+
 
       {/* <ScrollView>
       {
@@ -56,8 +58,9 @@ const styles = StyleSheet.create({
   items: {
     marginTop: 24,
     padding: 30,
-    backgroundColor:'pink',
-    fontSize:24
+    backgroundColor: 'pink',
+    fontSize: 24,
+    marginHorizontal:10
   }
 
 });
