@@ -23,30 +23,27 @@ console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
 
 
  export default class Demo1 extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: 'Useless PlaceHolder' };
-  }
+ 
   render() {
     return (
       <View style={styles.bao}>
-        <OVuong/>
-        <OVuong/>
-        <OVuong/>
-        <OVuong/>
-        <OVuong/>
-        <KhoaPham/>
+        <KhachHang hoten="Pham Truong Dang Khoa"/>
+        <KhachHang hoten="Nguyen Van Teo"/>
+        <KhachHang/>
       </View>
     );
   }
 }
 
-class OVuong extends Component {
-  render() {
-    return (
-      <View style={styles.teo} />
-    )
+class KhachHang extends Component{
+  render(){
+    return(
+      <View style={{backgroundColor:'yellow',padding:10}}>
+        <Text>{this.props.hoten} || DEFAULT NAME</Text>
+      </View>
+    );
   }
+  
 }
 
 
