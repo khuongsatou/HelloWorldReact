@@ -24,28 +24,28 @@ console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
 
 
 export default class Demo1 extends Component {
-  clickMe(){
-    console.log("Function Click");
+  constructor(props) {
+    super(props);
+    this.state = {
+      somayman: 999
+    };
   }
+  
+  clickMe(){
+    console.log("ClickMe");
+    this.setState({
+      somayman: this.state.somayman+1
+    });
+  }
+
   render() {
     return (
       <View style={styles.bao}>
-      <TouchableOpacity onPress={()=>{this.clickMe()}}>
-        <View>
-          <Text style={{ backgroundColor: 'green', width:20, height: 20 }}>
-
-          </Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={()=>{console.log("CLICK")}}>
-        <View>
-          <Text style={{ backgroundColor: 'green', width:20, height: 20 }}>
-
-          </Text>
-        </View>
-      </TouchableOpacity>
-
-    </View>
+        <Text style={{ fontSize: 100 }}>{this.state.somayman}</Text>
+        <TouchableOpacity onPress={()=>{this.clickMe()}}>
+          <View style={{width:100,height:20,backgroundColor:'red'}}></View>
+        </TouchableOpacity>
+      </View>
     );
   }
 }
