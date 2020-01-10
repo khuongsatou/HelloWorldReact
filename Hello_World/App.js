@@ -4,7 +4,9 @@ import {
   Text,
   View,
   Button,
+  TextInput
 } from 'react-native';
+
 
 export default function App(){
   const [name,setName] = useState('Khuong');
@@ -18,13 +20,13 @@ export default function App(){
   }
   return (
     <View style={styles.container}>
-      <Text>My Name is {name}</Text>
-<Text>His name is {person.name} and his age is {person.age}</Text>
-      <Text></Text>
-      <View style={styles.buttonContainer}>
-        <Button title='update State' onPress={clickHandler}/>
-
-      </View>
+      <Text>Enter name:</Text>
+      <TextInput style={styles.input}
+      placeholder='e.g. Khuong'
+      onChangeText={(val)=>setName(val)}
+      
+      />
+      <Text>name:{name},age:{person.age}</Text>
     </View>
   )
 }
@@ -39,6 +41,12 @@ const styles = StyleSheet.create({
   },
   buttonContainer:{
     margin:20
+  },
+  input:{
+    borderWidth:1,
+    borderColor:'#777',
+    padding:8,
+    margin:10,
   }
  
 });
