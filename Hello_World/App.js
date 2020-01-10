@@ -8,7 +8,8 @@ import {
   AppRegistry,
   StatusBar,
   Button,
-  TextInput
+  TextInput,
+  TouchableOpacity
 } from 'react-native';
 import { Avatar } from "./src/Components";
 import { Style } from "./src/comon";
@@ -22,42 +23,48 @@ console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
 
 
 
- export default class Demo1 extends Component {
- 
+export default class Demo1 extends Component {
+  clickMe(){
+    console.log("Function Click");
+  }
   render() {
     return (
       <View style={styles.bao}>
-        
-        <KhoaPham tenKhachHang="Khuong" />
-        <KhoaPham tenKhachHang="Khuong1" age={1999} />
-      </View>
+      <TouchableOpacity onPress={()=>{this.clickMe()}}>
+        <View>
+          <Text style={{ backgroundColor: 'green', width:20, height: 20 }}>
+
+          </Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={()=>{console.log("CLICK")}}>
+        <View>
+          <Text style={{ backgroundColor: 'green', width:20, height: 20 }}>
+
+          </Text>
+        </View>
+      </TouchableOpacity>
+
+    </View>
     );
   }
 }
 
-class KhachHang extends Component{
-  render(){
-    return(
-      <View style={{backgroundColor:'yellow',padding:10}}>
-        <Text>{this.props.hoten} || DEFAULT NAME</Text>
-      </View>
-    );
-  }
-  
-}
+
+
 
 
 const styles = StyleSheet.create({
   bao: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent:'space-between',
-    alignItems:'center',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   teo: {
     width: 20,
     height: 30,
-    borderWidth:1,
+    borderWidth: 1,
     backgroundColor: 'yellow',
   }
 
