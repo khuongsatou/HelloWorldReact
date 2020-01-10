@@ -7,7 +7,8 @@ import {
   View,
   AppRegistry,
   StatusBar,
-  Button
+  Button,
+  TextInput
 } from 'react-native';
 import { Avatar } from "./src/Components";
 import { Style } from "./src/comon";
@@ -16,86 +17,50 @@ import { Logs } from 'expo';
 YellowBox.ignoreWarnings(['Warning:...']);
 console.disableYellowBox = true;
 console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
-class Blink extends Component{
 
-  componentDidMount(){
-    setInterval(() => (
-      this.setState(previousState =>(
-        { isShowingText: !previousState.isShowingText }
-        ))
-    ),1000);
+
+
+ export default class Demo1 extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { text: 'Useless PlaceHolder' };
   }
-  state = { isShowingText: true};
-  render(){
-    if(!this.state.isShowingText){
-      return null;
-    }
-    return(
-      <Text>{this.props.text}</Text>
+  render() {
+    return (
+      <View style={styles.bao}>
+        <OVuong/>
+        <OVuong/>
+        <OVuong/>
+        <OVuong/>
+        <OVuong/>
+      </View>
     );
   }
 }
 
-
-export default class Demo1 extends Component {
-  constructor(props) {
-    super(props);
-    console.log("Hello ConStructor");
-  }
-
-  componentWillMount() {
-    console.log("Hello WillMount");
-  }
-
-  onPressLearnMore(){
-    console.log("Click");
-  }
-
+class OVuong extends Component {
   render() {
-    console.log("Hello Render");
     return (
-        <View style={styles.bao}>
-           <Button
-           onPress={()=>{
-             console.log("Click")
-           }}
-          title="Learn More"
-          color="red"
-          accessibilityLabel="Learn more about this purple button"
-          />
-        </View>
-    );
+      <View style={styles.teo} />
+    )
   }
-
-  componentDidMount() {
-    console.log("Hello DidMount");
-  }
-
-
 }
 
 
 const styles = StyleSheet.create({
-  bao: { flex: 1, flexDirection: 'row' },
-  teo: {
-    backgroundColor: 'red',
+  bao: {
     flex: 1,
-    marginTop:30
+    flexDirection: 'row',
+    justifyContent:'space-between',
+    alignItems:'center',
   },
-  ti: {
+  teo: {
+    width: 20,
+    height: 30,
+    borderWidth:1,
     backgroundColor: 'yellow',
-    flex: 1
-  },
-  suu: {
-    backgroundColor: 'pink',
-    flex: 3/2
-  },
-  chuNhay:{
-    marginTop:40,
-    width:20,
-    height:20,
-    fontSize:30
   }
+
 });
 
 AppRegistry.registerComponent('Demo1', () => Demo1);
